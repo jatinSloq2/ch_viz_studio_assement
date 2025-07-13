@@ -8,7 +8,7 @@ import { brands } from '@/constants/image';
 const BrandSlide = () => {
 
   return (
-    <section className="mx-auto px-4">
+    <section className="mx-auto px-4 my-20">
       <p className="text-gray-500 text-lg mb-8 text-center">
         Loved by product folks at
       </p>
@@ -20,11 +20,7 @@ const BrandSlide = () => {
         loop={true}
         allowTouchMove={false}
         speed={5000}
-        autoplay={{
-          delay: 0,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }}
+        autoplay={true}
         className="w-full"
       >
         {brands.map((brand, index) => (

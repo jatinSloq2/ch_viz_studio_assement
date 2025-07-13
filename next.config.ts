@@ -1,8 +1,9 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
+import { PHASE_PRODUCTION_BUILD } from 'next/constants';
 
 const nextConfig: NextConfig = {
-  /* config options here */
-   images: {
+  reactStrictMode: true,
+  images: {
     domains: ['cdn.prod.website-files.com'],
   },
 };

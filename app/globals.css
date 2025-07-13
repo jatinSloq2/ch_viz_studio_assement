@@ -133,21 +133,48 @@ html, body {
   }
 }
 
-.section-title {
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 670px;
-    margin-bottom: 3.2em;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    position: relative;
+@layer utilities {
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-in-out forwards;
+  }
 }
 
-.backface-hidden {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+.tab-pane-img {
+  @apply transition-opacity duration-300 ease-in-out;
+}
+
+.sphere-wrapper {
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    display: flex
+;
+    position: relative;
+    overflow: hidden;
+    transform: none;
+}
+
+.sphere-anim {
+    pointer-events: none;
+    background-color: blueviolet;
+    background-position: 0%;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    flex: none;
+    width: 120px;
+    height: 120px;
+    display: block;
+    transform: scale(.5);
 }

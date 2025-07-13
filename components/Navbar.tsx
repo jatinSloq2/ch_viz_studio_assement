@@ -45,7 +45,11 @@ export default function Navbar() {
         {/* Mobile: Hamburger left, logo right */}
         <div className="flex justify-between w-full items-center md:hidden">
           {/* Hamburger */}
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button
+            className="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle Menu"
+          >
             <svg
               className="h-6 w-6 text-black"
               fill="none"
@@ -160,14 +164,27 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md border-t z-40 px-6 py-4 space-y-4 transition-all duration-300">
-          <Link href="/" className="block text-lg font-medium text-gray-800">Product</Link>
-          <Link href="/" className="block text-lg font-medium text-gray-800">Changelog</Link>
-          <Link href="/" className="block text-lg font-medium text-gray-800">Manifesto</Link>
-          <Link href="/" className="block text-lg font-medium text-gray-800">Resources</Link>
-          <div className="pt-4 border-t mt-4">
-            <Link href="/" className="block text-gray-700 mb-2">Log in</Link>
-            <Button className="w-full">Get started</Button>
+        <div
+          className={`md:hidden absolute top-full left-0 w-full bg-white shadow-md border-t z-40 px-6 py-4 space-y-4 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
+            }`}
+        >
+          <div className="space-y-3">
+            <Link href="/" className="block text-base font-semibold text-gray-800 hover:text-blue-600 transition">
+              Product
+            </Link>
+            <Link href="/" className="block text-base font-semibold text-gray-800 hover:text-blue-600 transition">
+              Changelog
+            </Link>
+            <Link href="/" className="block text-base font-semibold text-gray-800 hover:text-blue-600 transition">
+              Manifesto
+            </Link>
+            <Link href="/" className="block text-base font-semibold text-gray-800 hover:text-blue-600 transition">
+              Resources
+            </Link>
+          </div>
+          <div className="pt-6 border-t mt-4 space-y-2">
+            <Link href="/" className="block text-gray-700 font-medium">Log in</Link>
+            <Button className="w-full text-[16px] font-semibold">Get started</Button>
           </div>
         </div>
       )}
